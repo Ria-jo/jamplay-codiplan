@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JAMPLAY CODIPLAN — 시간표 생성기 (ver6.3-웹)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="main-header card">
+      <h1>JAMPLAY CODIPLAN</h1>
+      <p class="version">Ver.6.3 (웹 프론트엔드)</p>
+    </header>
+
+    <section class="grid two-col">
+      <!-- 좌측: 설정 -->
+      <div class="card">
+        <h2>연령별 반 수 입력</h2>
+        <div class="form-row">
+          <label for="num5">5세반</label>
+          <input id="num5" type="number" min="0" value="0" />
+        </div>
+        <div class="form-row">
+          <label for="num6">6세반</label>
+          <input id="num6" type="number" min="0" value="0" />
+        </div>
+        <div class="form-row">
+          <label for="num7">7세반</label>
+          <input id="num7" type="number" min="0" value="0" />
+        </div>
+      </div>
+
+      <!-- 우측: 요일 선택 -->
+      <div class="card">
+        <h2>수업 가능한 요일</h2>
+        <div class="days">
+          <label><input type="checkbox" value="월" /> 월</label>
+          <label><input type="checkbox" value="화" /> 화</label>
+          <label><input type="checkbox" value="수" /> 수</label>
+          <label><input type="checkbox" value="목" /> 목</label>
+          <label><input type="checkbox" value="금" /> 금</label>
+        </div>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button id="btn-generate" class="primary">시간표 생성</button>
+      <button id="btn-clear" class="secondary">지우기</button>
+    </div>
+
+    <section id="tables" class="tables"></section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
