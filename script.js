@@ -126,22 +126,57 @@ function generateTimetable() {
 // 화면의 시간표(#tables)를 PNG로 저장
 async function downloadPNG() {
   const target = document.getElementById('tables');
-  if (!target || !target.firstChild) {
+  if (!target || !target.firstElementChild) {
     alert('먼저 시간표를 생성하세요.');
     return;
   }
 
-  // 해상도 선명하게(scale 2) + 흰 배경
-  const canvas = await html2canvas(target, {
-    scale: 2,
-    backgroundColor: '#ffffff',
-    useCORS: true,
-  });
+  try {
+    // 캔버스 생성
+    const canvas = await html2canvas(target, {
+      scale: 2,
+      backgroundColor: '#ffffff',
+      useCORS: true,
+    });
 
-  const link = document.createElement('a');
-  link.download = 'timetable.png';
-  link.href = canvas.toDataURL('image/png');
-  document.body.appendChild(link); // iOS/Safari 대응
-  link.click();
-  link.remove();
+    // Blob으로 변환(데이터URL보다 호환성 좋음)
+    canvas.toBlob((blob) => {
+      if (!blob) {
+        alert('이미지 생성에 실패했어요.');
+        return;
+      }
+      const url = URL.createObjectURL(blob);
+
+      // a[download] 지원 안 하는 브라우저 대비
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `timetable-${new Date().toISOString().slice(0, 10)}.png`;
+
+      // 지원 안 하면 새 탭으로라도 열어서 저장하게 함(사파리 대응)
+      if (typeof a.download === 'undefined') {
+        window.open(url, '_blank');
+        return;
+      }
+
+      document.body.appendChild(a);
+      a.click();
+      // 정리
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+        a.remove();
+      }, 0);
+
+      // 사용자 피드백(원하면 지워도 됨)
+      setTimeout(
+        () =>
+          alert(
+            '다운로드를 시작했어요. 브라우저의 다운로드 목록을 확인해 주세요.'
+          ),
+        50
+      );
+    }, 'image/png');
+  } catch (err) {
+    console.error('[downloadPNG] error:', err);
+    alert('다운로드 중 오류가 발생했습니다. 콘솔을 확인해 주세요.');
+  }
 }
