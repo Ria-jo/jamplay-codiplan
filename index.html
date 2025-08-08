@@ -48,11 +48,13 @@
         <button id="btn-generate" class="primary">시간표 생성</button>
         <button id="btn-clear" class="secondary">지우기</button>
         <button id="btn-download" class="secondary">PNG로 저장</button>
-        <!-- ✅ 추가 -->
       </div>
 
+      <!-- 결과 영역 -->
       <section id="tables" class="tables"></section>
     </main>
+
+    <!-- html2canvas는 script.js보다 먼저 로드해야 함 -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="script.js"></script>
   </body>
