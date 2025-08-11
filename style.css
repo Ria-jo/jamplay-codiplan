@@ -1,74 +1,187 @@
 /* Palette (from GAS): */
-:root{
-  --headerBg:#C4DFDF;
-  --sectionBg:#D2E9E9;
-  --labelBg:#E3F4F4;
-  --inputBg:#F8F6F4;
-  --borderColor:#F8F6F4;
-  --fontColor:#535252;
+:root {
+  --headerBg: #c4dfdf;
+  --sectionBg: #d2e9e9;
+  --labelBg: #e3f4f4;
+  --inputBg: #f8f6f4;
+  --borderColor: #f8f6f4;
+  --fontColor: #535252;
 }
 
-*{ box-sizing: border-box; }
-body{
-  margin:0;
-  font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',Segoe UI,Roboto, Helvetica, Arial, '맑은 고딕', sans-serif;
-  color:var(--fontColor);
-  background:#fff;
+* {
+  box-sizing: border-box;
 }
-.container{ max-width:1100px; margin:32px auto; padding:0 16px; }
-.main-header{
-  background:var(--headerBg);
-  text-align:center;
-  padding:28px 16px;
-  border:1px solid var(--borderColor);
-  border-radius:16px;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Noto Sans KR', Segoe UI, Roboto, Helvetica, Arial, '맑은 고딕', sans-serif;
+  color: var(--fontColor);
+  background: #fff;
 }
-.main-header h1{ margin:0; font-size:36px; font-weight:800; }
-.version{ margin:.25rem 0 0; opacity:.8; }
-
-.grid.two-col{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px; }
-@media (max-width:800px){ .grid.two-col{ grid-template-columns: 1fr; } }
-
-.card{
-  background:var(--sectionBg);
-  border:1px solid var(--borderColor);
-  border-radius:16px;
-  padding:16px;
+.container {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 16px;
 }
-.card h2{ margin:0 0 12px; font-size:18px; font-weight:700; text-align:center; }
-.form-row{ display:grid; grid-template-columns: 100px 1fr; align-items:center; gap:8px; margin-bottom:8px; }
-.form-row label{ background:var(--labelBg); padding:10px; text-align:center; border-radius:12px; border:1px solid var(--borderColor); }
-.form-row input{ background:var(--inputBg); padding:10px; border-radius:12px; border:1px solid var(--borderColor); text-align:center; }
-
-.days{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
-.days label{ background:var(--labelBg); padding:8px 12px; border-radius:12px; border:1px solid var(--borderColor); }
-.days input{ margin-right:6px; }
-
-.actions{ margin:16px 0; display:flex; gap:8px; justify-content:center; }
-button{ cursor:pointer; padding:10px 16px; border-radius:10px; border:1px solid var(--borderColor); background:var(--inputBg); }
-button.primary{ background:#fff; }
-button.secondary{ background:#fafafa; }
-
-.tables{ display:grid; grid-template-columns: 1fr; gap:18px; margin:6px 0 40px; }
-
-.week{
-  border:1px solid var(--borderColor);
-  border-radius:16px;
-  overflow:hidden;
+.main-header {
+  background: var(--headerBg);
+  text-align: center;
+  padding: 28px 16px;
+  border: 1px solid var(--borderColor);
+  border-radius: 16px;
 }
-.week .title{
-  background:var(--sectionBg);
-  font-weight:700;
-  text-align:center;
-  padding:12px;
+.main-header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 800;
 }
-.table-wrap{ padding:10px; overflow-x:auto; }
-table{ border-collapse:collapse; margin:0 auto; min-width:480px; }
-th,td{
-  border:1px solid var(--borderColor);
-  background:var(--inputBg);
-  text-align:center;
-  padding:10px 12px;
-  white-space:nowrap;
+.version {
+  margin: 0.25rem 0 0;
+  opacity: 0.8;
 }
-th.label, td.label{ background:var(--labelBg); font-weight:700; }
+
+.grid.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+@media (max-width: 800px) {
+  .grid.two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--sectionBg);
+  border: 1px solid var(--borderColor);
+  border-radius: 16px;
+  padding: 16px;
+}
+.card h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.form-row label {
+  background: var(--labelBg);
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--borderColor);
+}
+.form-row input {
+  background: var(--inputBg);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--borderColor);
+  text-align: center;
+}
+
+.days {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.days label {
+  background: var(--labelBg);
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--borderColor);
+}
+.days input {
+  margin-right: 6px;
+}
+
+.actions {
+  margin: 16px 0;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+button {
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--borderColor);
+  background: var(--inputBg);
+}
+button.primary {
+  background: #fff;
+}
+button.secondary {
+  background: #fafafa;
+}
+
+.tables {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin: 6px 0 40px;
+}
+
+.week {
+  border: 1px solid var(--borderColor);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.week .title {
+  background: var(--sectionBg);
+  font-weight: 700;
+  text-align: center;
+  padding: 12px;
+}
+.table-wrap {
+  padding: 10px;
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  min-width: 480px;
+}
+th,
+td {
+  border: 1px solid var(--borderColor);
+  background: var(--inputBg);
+  text-align: center;
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+th.label,
+td.label {
+  background: var(--labelBg);
+  font-weight: 700;
+}
+
+/* Guide (사용 방법) */
+.guide h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  text-align: left;
+}
+.guide-list {
+  margin: 0 0 10px 18px; /* 번호 목록 들여쓰기 */
+  padding: 0;
+}
+.guide-list li {
+  margin: 6px 0;
+  line-height: 1.45;
+}
+.guide-note {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  background: var(--labelBg);
+  border: 1px solid var(--borderColor);
+  border-radius: 10px;
+  line-height: 1.5;
+}
